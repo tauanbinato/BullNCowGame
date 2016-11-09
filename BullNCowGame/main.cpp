@@ -4,7 +4,7 @@
 //
 //  Created by Tauan Binato Flores on 08/11/16.
 //  Copyright © 2016 Tauan Binato Flores. All rights reserved.
-//
+//.
 
 #include <iostream>
 #include <string>
