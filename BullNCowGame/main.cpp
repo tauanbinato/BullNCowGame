@@ -15,31 +15,63 @@ void PrintIntro();
 string GetPlayerGuess();
 void SayGuess(string guess);
 void PlayGame();
+bool AskToPlayAgain();
+void GameLoop();
 
 /* The entry point */
 
 int main()
 {
     
-    PrintIntro();
-    PlayGame();
-    
+    GameLoop();
     return 0;
 }
+
+
+/* Game Loop */
+
+void GameLoop()
+{
+    bool isPlaying = true;
+    
+    do {
+    PrintIntro();
+    PlayGame();
+    isPlaying = AskToPlayAgain();
+    } while(isPlaying);
+    
+    return;
+}
+
+/* Ask To Play Again */
+bool AskToPlayAgain()
+{
+    cout << "Do you wanna play again?(y/n) ";
+    string Response = "";
+    getline(cin , Response);
+    
+    if(Response[0] == 'y' || Response[0] == 'Y'){
+        return true;
+    }
+    
+    return false;
+}
+
+
 
 /* Play Game */
 
 void PlayGame()
 {
     //Loop asking for guesses
-    string Guess;
     constexpr int NUMBER_OF_TURNS = 5;
     for(int count = 0 ; count < NUMBER_OF_TURNS; count++){
         
-        Guess = GetPlayerGuess();
+        string Guess = GetPlayerGuess();
         SayGuess(Guess);
         cout << endl;
     }
+    return;
 }
 
 /* Repeat the Guess for the user */
@@ -69,7 +101,7 @@ string GetPlayerGuess()
 
 void PrintIntro()
 {
-    
+    cout << endl;
     constexpr int WORLD_LENGTH = 9;
     cout << "Welcome to Bulls and Cows, a fun word game.\n";
     cout << "Can you guess the "<< WORLD_LENGTH;
