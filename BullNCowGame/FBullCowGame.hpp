@@ -20,7 +20,9 @@ public:
     int GetMaxTries();
     bool isGameWon();
     int GetCurrentTry();
+    void AddCurrentTry();
     bool CheckGuessValidity(std::string);
+
     
     
 private:

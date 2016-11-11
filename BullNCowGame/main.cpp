@@ -18,6 +18,8 @@ void PlayGame();
 bool AskToPlayAgain();
 void GameLoop();
 
+FBullCowGame BCGame; // Instantiante a new game.
+
 /* The entry point */
 
 int main()
@@ -63,7 +65,7 @@ bool AskToPlayAgain()
 
 void PlayGame()
 {
-    FBullCowGame BCGame; // Instantiante a new game.
+    
     int MaxTries = BCGame.GetMaxTries();
     
 
@@ -91,10 +93,14 @@ void SayGuess(std::string guess)
 std::string GetPlayerGuess()
 {
     
+    int CurrentTry = BCGame.GetCurrentTry();
+    
     /*get a guess from the player */
     std::string Guess = "";
-    std::cout << "Enter a guess word: ";
+    std::cout << "Try " << CurrentTry << ". Enter a guess word: ";
     std::getline(std::cin , Guess);
+    
+    BCGame.AddCurrentTry();
     
     return Guess;
     

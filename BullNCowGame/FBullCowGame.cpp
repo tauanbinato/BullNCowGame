@@ -18,15 +18,23 @@ int FBullCowGame::GetMaxTries()
     return MyMaxTries;
 }
 
-bool FBullCowGame::isGameWon(){
+bool FBullCowGame::isGameWon()
+{
     
     return false;
 }
 
-int FBullCowGame::GetCurrentTry(){
-    return 0;
+int FBullCowGame::GetCurrentTry()
+{
+    return MyCurrentTry;
 }
 
-bool FBullCowGame::CheckGuessValidity(std::string){
+bool FBullCowGame::CheckGuessValidity(std::string)
+{
     return false;
+}
+
+void FBullCowGame::AddCurrentTry()
+{
+    MyCurrentTry++;
 }
