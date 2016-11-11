@@ -66,9 +66,9 @@ bool AskToPlayAgain()
 void PlayGame()
 {
     
+    BCGame.Reset();
     int MaxTries = BCGame.GetMaxTries();
     
-
     //Loop asking for guesses
 
     for(int count = 0 ; count < MaxTries; count++){

@@ -15,20 +15,25 @@
 class FBullCowGame{
     
 public:
+    FBullCowGame(); //Constructor
     
-    void Reset();
+    
     int GetMaxTries() const;
     int GetCurrentTry() const;
-    bool isGameWon();
+    bool isGameWon() const;
+    
+    
     void AddCurrentTry();
+    void Reset();
     bool CheckGuessValidity(std::string);
 
     
     
 private:
     
-    int MyCurrentTry = 1;
-    int MyMaxTries = 5;
+    //See constructor for private initiliazation
+    int MyCurrentTry;
+    int MyMaxTries;
     
 };
 
