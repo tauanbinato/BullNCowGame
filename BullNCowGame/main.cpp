@@ -64,10 +64,12 @@ bool AskToPlayAgain()
 void PlayGame()
 {
     FBullCowGame BCGame; // Instantiante a new game.
+    int MaxTries = BCGame.GetMaxTries();
     
+
     //Loop asking for guesses
-    constexpr int NUMBER_OF_TURNS = 5;
-    for(int count = 0 ; count < NUMBER_OF_TURNS; count++){
+
+    for(int count = 0 ; count < MaxTries; count++){
         
         std::string Guess = GetPlayerGuess();
         SayGuess(Guess);
