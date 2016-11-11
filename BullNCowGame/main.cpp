@@ -9,11 +9,11 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
+
 
 void PrintIntro();
-string GetPlayerGuess();
-void SayGuess(string guess);
+std::string GetPlayerGuess();
+void SayGuess(std::string guess);
 void PlayGame();
 bool AskToPlayAgain();
 void GameLoop();
@@ -46,9 +46,9 @@ void GameLoop()
 /* Ask To Play Again */
 bool AskToPlayAgain()
 {
-    cout << "Do you wanna play again?(y/n) ";
-    string Response = "";
-    getline(cin , Response);
+    std::cout << "Do you wanna play again?(y/n) ";
+    std::string Response = "";
+    getline(std::cin , Response);
     
     if(Response[0] == 'y' || Response[0] == 'Y'){
         return true;
@@ -67,30 +67,30 @@ void PlayGame()
     constexpr int NUMBER_OF_TURNS = 5;
     for(int count = 0 ; count < NUMBER_OF_TURNS; count++){
         
-        string Guess = GetPlayerGuess();
+        std::string Guess = GetPlayerGuess();
         SayGuess(Guess);
-        cout << endl;
+        std::cout << std::endl;
     }
     return;
 }
 
 /* Repeat the Guess for the user */
 
-void SayGuess(string guess)
+void SayGuess(std::string guess)
 {
-    cout << "Your guess word was: " << guess << endl;
+    std::cout << "Your guess word was: " << guess << std::endl;
     return;
 }
 
 /* Get Player Guess */
 
-string GetPlayerGuess()
+std::string GetPlayerGuess()
 {
     
     /*get a guess from the player */
-    string Guess = "";
-    cout << "Enter a guess word: ";
-    getline(cin , Guess);
+    std::string Guess = "";
+    std::cout << "Enter a guess word: ";
+    getline(std::cin , Guess);
     
     return Guess;
     
@@ -101,11 +101,11 @@ string GetPlayerGuess()
 
 void PrintIntro()
 {
-    cout << endl;
+    std::cout << std::endl;
     constexpr int WORLD_LENGTH = 9;
-    cout << "Welcome to Bulls and Cows, a fun word game.\n";
-    cout << "Can you guess the "<< WORLD_LENGTH;
-    cout << " letter isogram I'm thinking of?\n";
+    std::cout << "Welcome to Bulls and Cows, a fun word game.\n";
+    std::cout << "Can you guess the "<< WORLD_LENGTH;
+    std::cout << " letter isogram I'm thinking of?\n";
     
     return;
 }
