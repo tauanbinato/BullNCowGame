@@ -8,7 +8,7 @@
 
 #include <iostream>
 #include <string>
-
+#include "FBullCowGame.hpp"
 
 
 void PrintIntro();
@@ -63,6 +63,8 @@ bool AskToPlayAgain()
 
 void PlayGame()
 {
+    FBullCowGame BCGame; // Instantiante a new game.
+    
     //Loop asking for guesses
     constexpr int NUMBER_OF_TURNS = 5;
     for(int count = 0 ; count < NUMBER_OF_TURNS; count++){
@@ -90,7 +92,7 @@ std::string GetPlayerGuess()
     /*get a guess from the player */
     std::string Guess = "";
     std::cout << "Enter a guess word: ";
-    getline(std::cin , Guess);
+    std::getline(std::cin , Guess);
     
     return Guess;
     
