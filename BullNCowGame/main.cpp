@@ -120,20 +120,23 @@ FText GetPlayerGuess()
         Status = BCGame.CheckGuessValidity(Guess);
         switch (Status) {
         case EGuessStatus::Wrong_Length:
-            std::cout << "Please enter a " << BCGame.GetHiddenWordLength() << " letter word." << std::endl;
+            std::cout << "Please enter a " << BCGame.GetHiddenWordLength() << " letter word.\n";
             break;
             
         case EGuessStatus::Not_LowerCase:
-            std::cout << "Please use only lower case letters!" << std::endl;
+            std::cout << "Please use only lower case letters!\n";
             break;
             
         case EGuessStatus::Not_Isogram:
-            std::cout << "Please enter a word without repeating letters!" << std::endl;
+            std::cout << "Please enter a word without repeating letters!\n";
             break;
             
         default:
             return Guess;
         }
+        
+        std::cout << std::endl;
+        
     } while(Status != EGuessStatus::OK);
 
     return Guess;
@@ -147,7 +150,7 @@ void PrintIntro()
     std::cout << std::endl;
     std::cout << "Welcome to Bulls and Cows, a fun word game.\n";
     std::cout << "Can you guess the "<< BCGame.GetHiddenWordLength();
-    std::cout << " letter isogram I'm thinking of?\n";
+    std::cout << " letter isogram I'm thinking of?\n\n";
     
     return;
 }
