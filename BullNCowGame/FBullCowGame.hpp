@@ -27,17 +27,19 @@ typedef struct FBullCowCount
 class FBullCowGame{
     
 public:
+    
     FBullCowGame(); //Constructor
     
     
     int32 GetMaxTries() const;
     int32 GetCurrentTry() const;
+    int32 GetHiddenWordLength() const;
     bool isGameWon() const;
+    bool CheckGuessValidity(FString) const;
     
     
     void AddCurrentTry();
     void Reset();
-    bool CheckGuessValidity(FString);
     
     FBullCowCount SubmitGuess(FString);
     

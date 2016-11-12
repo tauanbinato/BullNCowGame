@@ -17,6 +17,24 @@ int32 FBullCowGame::GetMaxTries() const{ return MyMaxTries; }
 int32 FBullCowGame::GetCurrentTry() const{ return MyCurrentTry; }
 
 
+int32 FBullCowGame::GetHiddenWordLength() const
+{
+    
+    
+    return 0;
+}
+
+bool FBullCowGame::isGameWon() const
+{
+    
+    return false;
+}
+
+bool FBullCowGame::CheckGuessValidity(std::string) const
+{
+    return false;
+}
+
 void FBullCowGame::Reset()
 {
     constexpr int32 MAX_TRIES = 8;
@@ -29,21 +47,11 @@ void FBullCowGame::Reset()
     return;
 }
 
-bool FBullCowGame::isGameWon() const
-{
-    
-    return false;
-}
-
-bool FBullCowGame::CheckGuessValidity(std::string)
-{
-    return false;
-}
-
 void FBullCowGame::AddCurrentTry()
 {
     MyCurrentTry++;
 }
+
 
 FBullCowCount FBullCowGame::SubmitGuess(FString Guess)
 {
