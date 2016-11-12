@@ -16,7 +16,7 @@ using int32 = int;
 
 void PrintIntro();
 FText GetPlayerGuess();
-void SayGuess(FText guess);
+void SayGuess(FBullCowCount BullCowCount);
 void PlayGame();
 bool AskToPlayAgain();
 void GameLoop();
@@ -79,9 +79,11 @@ void PlayGame()
         FText Guess = GetPlayerGuess(); // TODO make loop checking valid
         
         // Submit valid guess to the game
-        // Print number of bulls and cows
+        FBullCowCount BullCowCount = BCGame.SubmitGuess(Guess);
         
-        SayGuess(Guess);
+        // Print number of bulls and cows
+        SayGuess(BullCowCount);
+        
         std::cout << std::endl;
     }
     
@@ -92,9 +94,10 @@ void PlayGame()
 
 /* Repeat the Guess for the user */
 
-void SayGuess(FText guess)
+void SayGuess(FBullCowCount BullCowCount)
 {
-    std::cout << "Your guess word was: " << guess << std::endl;
+    std::cout << "Bulls " << BullCowCount.Bulls;
+    std::cout << ". Cows " << BullCowCount.Cows << std::endl;
     return;
 }
 

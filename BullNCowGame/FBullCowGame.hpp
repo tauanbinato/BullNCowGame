@@ -15,7 +15,7 @@
 using FString = std::string;
 using int32 = int;
 
-typedef struct BullCowCount
+typedef struct FBullCowCount
 {
     
     int32 Bulls = 0;
@@ -39,7 +39,7 @@ public:
     void Reset();
     bool CheckGuessValidity(FString);
     
-    BullCowCount SubmitGuess(FString);
+    FBullCowCount SubmitGuess(FString);
     
 private:
     
