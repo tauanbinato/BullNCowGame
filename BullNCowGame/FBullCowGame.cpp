@@ -24,11 +24,24 @@ bool FBullCowGame::isGameWon() const
     return false;
 }
 
-EWordStatus FBullCowGame::CheckGuessValidity(std::string) const
+EGuessStatus FBullCowGame::CheckGuessValidity(FString Guess) const
 {
-    
-    
-    return EWordStatus::OK;
+    if(false)
+    {
+        return EGuessStatus::Not_Isogram;
+    }
+    else if(false)
+    {
+        return EGuessStatus::Not_LowerCase;
+    }
+    else if(Guess.length() != GetHiddenWordLength())
+    {
+        return EGuessStatus::Wrong_Length;
+    }
+    else
+    {
+     return EGuessStatus::OK;
+    }
 }
 
 void FBullCowGame::Reset()
@@ -54,6 +67,7 @@ FBullCowCount FBullCowGame::SubmitGuess(FString Guess)
     
     
     FBullCowCount BullCowCount;
+    AddCurrentTry();
     
     int32 HiddenWordLength = (int32)MyHiddenWord.length();
     for(int32 MHWChar = 0 ; MHWChar < HiddenWordLength ; MHWChar++)

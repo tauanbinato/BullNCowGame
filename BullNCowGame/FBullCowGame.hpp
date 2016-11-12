@@ -16,11 +16,13 @@ using FString = std::string;
 using int32 = int;
 
 
-enum EWordStatus
+enum class EGuessStatus
 {
-    
+    Invalid_Status,
     OK,
-    Not_Isogram
+    Not_Isogram,
+    Wrong_Length,
+    Not_LowerCase
     
 };
 
@@ -48,7 +50,7 @@ public:
     int32 GetHiddenWordLength() const;
     
     bool isGameWon() const;
-    EWordStatus CheckGuessValidity(FString) const;
+    EGuessStatus CheckGuessValidity(FString) const;
     
     void AddCurrentTry();
     void Reset();
