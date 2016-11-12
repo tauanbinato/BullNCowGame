@@ -20,6 +20,7 @@ void SayGuess(FBullCowCount BullCowCount);
 void PlayGame();
 bool AskToPlayAgain();
 void GameLoop();
+void PrintGameSummary();
 
 FBullCowGame BCGame; // Instantiante a new game.
 
@@ -74,13 +75,13 @@ void PlayGame()
     
     //Loop asking for guesses
 
-    for(int32 count = 0 ; count < MaxTries; count++){
+    while(!BCGame.isGameWon() && BCGame.GetCurrentTry() <= MaxTries){
         
         FText Guess = GetPlayerGuess(); // TODO make loop checking valid
         
         
         // Submit valid guess to the game
-        FBullCowCount BullCowCount = BCGame.SubmitGuess(Guess);
+        FBullCowCount BullCowCount = BCGame.SubmitValidGuess(Guess);
         
        
         SayGuess(BullCowCount);
@@ -88,7 +89,25 @@ void PlayGame()
         std::cout << std::endl;
     }
     
-    // TODO summarise game
+    PrintGameSummary();
+    
+    
+    return;
+}
+
+void PrintGameSummary()
+{
+    if(BCGame.isGameWon())
+    {
+        std::cout << "Congrats! You WIN the Game! :D\n" << std::endl;
+        return;
+    }
+    else if (!BCGame.isGameWon())
+    {
+        std::cout << "GAME OVER! You LOST the Game! :(\n" << std::endl;
+        return;
+    }
+    
     
     return;
 }
@@ -132,7 +151,8 @@ FText GetPlayerGuess()
             break;
             
         default:
-            return Guess;
+            // assume the guess is valid
+                break;
         }
         
         std::cout << std::endl;
@@ -148,7 +168,7 @@ FText GetPlayerGuess()
 void PrintIntro()
 {
     std::cout << std::endl;
-    std::cout << "Welcome to Bulls and Cows, a fun word game.\n";
+    std::cout << "\nWelcome to Bulls and Cows, a fun word game.\n";
     std::cout << "Can you guess the "<< BCGame.GetHiddenWordLength();
     std::cout << " letter isogram I'm thinking of?\n\n";
     
