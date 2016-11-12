@@ -15,6 +15,15 @@
 using FString = std::string;
 using int32 = int;
 
+
+enum EWordStatus
+{
+    
+    OK,
+    Not_Isogram
+    
+};
+
 typedef struct FBullCowCount
 {
     
@@ -23,6 +32,9 @@ typedef struct FBullCowCount
     
 }BullCowCount;
 
+
+
+/* Class Declaration */
 
 class FBullCowGame{
     
@@ -36,7 +48,7 @@ public:
     int32 GetHiddenWordLength() const;
     
     bool isGameWon() const;
-    bool CheckGuessValidity(FString) const;
+    EWordStatus CheckGuessValidity(FString) const;
     
     void AddCurrentTry();
     void Reset();

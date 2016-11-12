@@ -24,9 +24,11 @@ bool FBullCowGame::isGameWon() const
     return false;
 }
 
-bool FBullCowGame::CheckGuessValidity(std::string) const
+EWordStatus FBullCowGame::CheckGuessValidity(std::string) const
 {
-    return false;
+    
+    
+    return EWordStatus::OK;
 }
 
 void FBullCowGame::Reset()
