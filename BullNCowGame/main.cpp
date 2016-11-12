@@ -176,14 +176,9 @@ void PrintIntro()
     std::cout << "   /|      |OO           -|        |\\    " << std::endl;
     std::cout << "  / | BULL |              |  COW   | \\   " << std::endl;
     std::cout << " /  |      |              |        |  \\  " << std::endl;
-    std::cout << "*   |-,----|              |--------|   *  " << std::endl;
-    std::cout << "    X      X              x        x      " << std::endl;
+    std::cout << "*   |-,----|              |-(    )-|   *  " << std::endl;
+    std::cout << "    X      X              x  ''''  x      " << std::endl;
     std::cout << "                                          " << std::endl;
-    
-    
-    
-    
-    
     
     
     std::cout << "Can you guess the "<< BCGame.GetHiddenWordLength();
