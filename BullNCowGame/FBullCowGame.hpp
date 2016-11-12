@@ -12,28 +12,31 @@
 #include <stdio.h>
 #include <string>
 
+using FString = std::string;
+using int32 = int;
+
 class FBullCowGame{
     
 public:
     FBullCowGame(); //Constructor
     
     
-    int GetMaxTries() const;
-    int GetCurrentTry() const;
+    int32 GetMaxTries() const;
+    int32 GetCurrentTry() const;
     bool isGameWon() const;
     
     
     void AddCurrentTry();
     void Reset();
-    bool CheckGuessValidity(std::string);
-
+    bool CheckGuessValidity(FString);
+    // provide a method for couting bulls & cows , and increasing try number
     
     
 private:
     
     //See constructor for private initiliazation
-    int MyCurrentTry;
-    int MyMaxTries;
+    int32 MyCurrentTry;
+    int32 MyMaxTries;
     
 };
 

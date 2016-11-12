@@ -1,19 +1,22 @@
-//
-//  main.cpp
-//  BullCowGame
-//
+
 //  Created by Tauan Binato Flores on 08/11/16.
 //  Copyright © 2016 Tauan Binato Flores. All rights reserved.
 //.
+
+/* This is the console executable , that makes use of the BullCow Class.
+   This acts as the view in a MVC pattern , and is responsible for all user interaction.
+   For game logic see the FBullCowgame class.*/
 
 #include <iostream>
 #include <string>
 #include "FBullCowGame.hpp"
 
+using FText = std::string;
+using int32 = int;
 
 void PrintIntro();
-std::string GetPlayerGuess();
-void SayGuess(std::string guess);
+FText GetPlayerGuess();
+void SayGuess(FText guess);
 void PlayGame();
 bool AskToPlayAgain();
 void GameLoop();
@@ -49,7 +52,7 @@ void GameLoop()
 bool AskToPlayAgain()
 {
     std::cout << "Do you wanna play again?(y/n) ";
-    std::string Response = "";
+    FText Response = "";
     getline(std::cin , Response);
     
     if(Response[0] == 'y' || Response[0] == 'Y'){
@@ -67,22 +70,29 @@ void PlayGame()
 {
     
     BCGame.Reset();
-    int MaxTries = BCGame.GetMaxTries();
+    int32 MaxTries = BCGame.GetMaxTries();
     
     //Loop asking for guesses
 
-    for(int count = 0 ; count < MaxTries; count++){
+    for(int32 count = 0 ; count < MaxTries; count++){
         
-        std::string Guess = GetPlayerGuess();
+        FText Guess = GetPlayerGuess(); // TODO make loop checking valid
+        
+        // Submit valid guess to the game
+        // Print number of bulls and cows
+        
         SayGuess(Guess);
         std::cout << std::endl;
     }
+    
+    // TODO summarise game
+    
     return;
 }
 
 /* Repeat the Guess for the user */
 
-void SayGuess(std::string guess)
+void SayGuess(FText guess)
 {
     std::cout << "Your guess word was: " << guess << std::endl;
     return;
@@ -90,13 +100,13 @@ void SayGuess(std::string guess)
 
 /* Get Player Guess */
 
-std::string GetPlayerGuess()
+FText GetPlayerGuess()
 {
     
-    int CurrentTry = BCGame.GetCurrentTry();
+    int32 CurrentTry = BCGame.GetCurrentTry();
     
     /*get a guess from the player */
-    std::string Guess = "";
+    FText Guess = "";
     std::cout << "Try " << CurrentTry << ". Enter a guess word: ";
     std::getline(std::cin , Guess);
     
@@ -112,7 +122,7 @@ std::string GetPlayerGuess()
 void PrintIntro()
 {
     std::cout << std::endl;
-    constexpr int WORLD_LENGTH = 9;
+    constexpr int32 WORLD_LENGTH = 9;
     std::cout << "Welcome to Bulls and Cows, a fun word game.\n";
     std::cout << "Can you guess the "<< WORLD_LENGTH;
     std::cout << " letter isogram I'm thinking of?\n";
