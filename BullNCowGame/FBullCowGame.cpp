@@ -15,14 +15,8 @@ FBullCowGame::FBullCowGame(){ Reset(); }    // Constructor
 
 int32 FBullCowGame::GetMaxTries() const{ return MyMaxTries; }
 int32 FBullCowGame::GetCurrentTry() const{ return MyCurrentTry; }
+int32 FBullCowGame::GetHiddenWordLength() const{ return (int32)MyHiddenWord.length(); }
 
-
-int32 FBullCowGame::GetHiddenWordLength() const
-{
-    
-    
-    return 0;
-}
 
 bool FBullCowGame::isGameWon() const
 {
