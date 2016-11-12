@@ -52,7 +52,7 @@ void GameLoop()
 /* Ask To Play Again */
 bool AskToPlayAgain()
 {
-    std::cout << "Do you wanna play again?(y/n) ";
+    std::cout << "Do you wanna play again with the same hidden word?(y/n) ";
     FText Response = "";
     getline(std::cin , Response);
     

@@ -50,6 +50,7 @@ public:
     int32 GetHiddenWordLength() const;
     
     bool isGameWon() const;
+    
     EGuessStatus CheckGuessValidity(FString) const;
     
     void AddCurrentTry();
@@ -65,6 +66,8 @@ private:
     FString MyHiddenWord;
     bool bGameIsWon;
     
+    bool IsIsogram(FString) const;
+    bool isLowerCase(FString) const;
 };
 
 
