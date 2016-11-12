@@ -15,6 +15,15 @@
 using FString = std::string;
 using int32 = int;
 
+typedef struct BullCowCount
+{
+    
+    int32 Bulls = 0;
+    int32 Cows = 0;
+    
+}BullCowCount;
+
+
 class FBullCowGame{
     
 public:
@@ -29,14 +38,15 @@ public:
     void AddCurrentTry();
     void Reset();
     bool CheckGuessValidity(FString);
-    // provide a method for couting bulls & cows , and increasing try number
     
+    BullCowCount SubmitGuess(FString);
     
 private:
     
     //See constructor for private initiliazation
     int32 MyCurrentTry;
     int32 MyMaxTries;
+    FString MyHiddenWord;
     
 };
 
