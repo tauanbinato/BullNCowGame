@@ -132,7 +132,7 @@ FText GetPlayerGuess()
     do {
         /*get a guess from the player */
         int32 CurrentTry = BCGame.GetCurrentTry();
-        std::cout << "Try " << CurrentTry << ". Enter a guess word: ";
+        std::cout << "Try " << CurrentTry << " of "<< BCGame.GetMaxTries() << ". Enter a guess word: ";
         std::getline(std::cin , Guess);
     
     
@@ -169,6 +169,23 @@ void PrintIntro()
 {
     std::cout << std::endl;
     std::cout << "\nWelcome to Bulls and Cows, a fun word game.\n";
+    std::cout << std::endl;
+    std::cout << "          } __ {       _____              " << std::endl;
+    std::cout << "          (O  O)       (o o)              " << std::endl;
+    std::cout << "    /------\\  /         \\ /--------       " << std::endl;
+    std::cout << "   /|      |OO           -|        |\\    " << std::endl;
+    std::cout << "  / | BULL |              |  COW   | \\   " << std::endl;
+    std::cout << " /  |      |              |        |  \\  " << std::endl;
+    std::cout << "*   |-,----|              |--------|   *  " << std::endl;
+    std::cout << "    X      X              x        x      " << std::endl;
+    std::cout << "                                          " << std::endl;
+    
+    
+    
+    
+    
+    
+    
     std::cout << "Can you guess the "<< BCGame.GetHiddenWordLength();
     std::cout << " letter isogram I'm thinking of?\n\n";
     
