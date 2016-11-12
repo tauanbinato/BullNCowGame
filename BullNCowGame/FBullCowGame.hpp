@@ -62,7 +62,7 @@ private:
     
     //See constructor for private initiliazation
     int32 MyCurrentTry;
-    int32 MyMaxTries;
+  
     FString MyHiddenWord;
     bool bGameIsWon;
     

@@ -15,13 +15,18 @@
 
 using int32 = int;
 
-FBullCowGame::FBullCowGame(){ Reset(); }    // Constructor
+FBullCowGame::FBullCowGame(){ Reset(); }    //  default Constructor
 
-int32 FBullCowGame::GetMaxTries() const { return MyMaxTries; }
 int32 FBullCowGame::GetCurrentTry() const { return MyCurrentTry; }
 int32 FBullCowGame::GetHiddenWordLength() const { return (int32)MyHiddenWord.length(); }
 bool FBullCowGame::isGameWon() const { return bGameIsWon; }
 
+
+int32 FBullCowGame::GetMaxTries() const
+{
+    TMap<int32,int32> WordLengthToMaxTries { {3,5}, {4,5}, {5,7}, {6,8} , {7,8} , {8,10} };
+    return WordLengthToMaxTries[(int32)MyHiddenWord.length()];
+}
 
 
 EGuessStatus FBullCowGame::CheckGuessValidity(FString Guess) const
@@ -89,10 +94,9 @@ bool FBullCowGame::isLowerCase(FString Word) const{
 
 void FBullCowGame::Reset()
 {
-    constexpr int32 MAX_TRIES = 8;
+    
     const FString HIDDEN_WORD = "unha";
     
-    MyMaxTries = MAX_TRIES;
     MyHiddenWord = HIDDEN_WORD;
     
     MyCurrentTry = 1;
