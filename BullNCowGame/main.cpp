@@ -85,8 +85,7 @@ void PlayGame()
 
     while(!BCGame.isGameWon() && BCGame.GetCurrentTry() <= MaxTries){
         
-        FText Guess = GetPlayerGuess(); // TODO make loop checking valid
-        
+        FText Guess = GetPlayerGuess();
         
         // Submit valid guess to the game
         FBullCowCount BullCowCount = BCGame.SubmitValidGuess(Guess);
@@ -116,7 +115,7 @@ void SelectNumberOfLetters()
             std::cout << "\nYou need to choose a length less than 8 and greater than 2.\n\n";
         }
     
-    }while((wordLengthSelected >= MAX_WORD_LENGTH) && wordLengthSelected < MIN_WORD_LENGTH);
+    }while((wordLengthSelected >= MAX_WORD_LENGTH) || wordLengthSelected < MIN_WORD_LENGTH);
 
     BCGame.SetWordLength(wordLengthSelected);
    
@@ -162,7 +161,7 @@ FText GetPlayerGuess()
         int32 CurrentTry = BCGame.GetCurrentTry();
         std::cout << "Try " << CurrentTry << " of "<< BCGame.GetMaxTries() << ". Enter a guess word: ";
         std::getline(std::cin , Guess);
-    
+        //std::cout << "aqui " << Guess;
     
         Status = BCGame.CheckGuessValidity(Guess);
         switch (Status) {

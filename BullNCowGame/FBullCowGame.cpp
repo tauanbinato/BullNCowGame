@@ -24,7 +24,7 @@ bool FBullCowGame::isGameWon() const { return bGameIsWon; }
 
 int32 FBullCowGame::GetMaxTries() const
 {
-    TMap<int32,int32> WordLengthToMaxTries { {3,5}, {4,5}, {5,7}, {6,8} , {7,10} };
+    TMap<int32,int32> WordLengthToMaxTries { {3,4}, {4,7}, {5,10}, {6,13} , {7,15} };
     return WordLengthToMaxTries[(int32)MyHiddenWord.length()];
 }
 
@@ -78,7 +78,6 @@ bool FBullCowGame::IsIsogram(FString Word) const {
 
 bool FBullCowGame::isLowerCase(FString Word) const{
     
-    if(Word.length() == 0 || Word[0] == '\0' || Word[0] == ' ') { return false; }
     
     for(char Letter : Word)// for all letter of the word
     {
