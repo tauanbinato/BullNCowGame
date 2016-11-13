@@ -12,10 +12,12 @@
 #include <ctype.h>
 #define TMap std::map
 
-
+//for Unreal
 using int32 = int;
 
+
 FBullCowGame::FBullCowGame(){ Reset(); }    //  default Constructor
+
 
 int32 FBullCowGame::GetCurrentTry() const { return MyCurrentTry; }
 int32 FBullCowGame::GetHiddenWordLength() const { return (int32)MyHiddenWord.length(); }
@@ -94,7 +96,7 @@ bool FBullCowGame::isLowerCase(FString Word) const{
 void FBullCowGame::Reset()
 {
     
-    SetHiddenWord(MyCurrentWordLength);
+    SetHiddenWord(MyCurrentWordLength); //Set one hidden word isogram based on our private variable.
     
     MyCurrentTry = 1;
     bGameIsWon = false;
