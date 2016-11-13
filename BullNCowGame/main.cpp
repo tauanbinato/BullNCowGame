@@ -7,16 +7,20 @@
    This acts as the view in a MVC pattern , and is responsible for all user interaction.
    For game logic see the FBullCowgame class.*/
 
+#pragma once
+
 #include <iostream>
 #include <string>
 #include "FBullCowGame.hpp"
 #define MAX_WORD_LENGTH 8
 #define MIN_WORD_LENGTH 3
 
+
+//to make syntax Unreal friendly
 using FText = std::string;
 using int32 = int;
 
-
+// fuction prototypes as outside a class
 void PrintIntro();
 void PrintIntro_2();
 FText GetPlayerGuess();
@@ -26,6 +30,7 @@ bool AskToPlayAgain();
 void GameLoop();
 void PrintGameSummary();
 void SelectNumberOfLetters();
+
 
 FBullCowGame BCGame; // Instantiante a new game.
 
@@ -102,6 +107,8 @@ void PlayGame()
     return;
 }
 
+/* Select Number of letters */
+
 void SelectNumberOfLetters()
 {
     int32 wordLengthSelected;
@@ -121,6 +128,8 @@ void SelectNumberOfLetters()
    
     return;
 }
+
+/* Print the summary */
 
 void PrintGameSummary()
 {

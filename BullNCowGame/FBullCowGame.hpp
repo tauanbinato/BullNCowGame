@@ -5,13 +5,16 @@
 //  Created by Tauan Binato Flores on 09/11/16.
 //  Copyright © 2016 Tauan Binato Flores. All rights reserved.
 //
+// * The game logic (no view code or direct user interaction)     *
+// * The game is a simple guess the word game based on Mastermind *
 
-#ifndef FBullCowGame_hpp
-#define FBullCowGame_hpp
+#pragma once
 
 #include <stdio.h>
 #include <string>
 
+
+//to make syntax Unreal friendly
 using FString = std::string;
 using int32 = int;
 
@@ -25,6 +28,7 @@ enum class EGuessStatus
     Not_LowerCase
     
 };
+
 
 typedef struct FBullCowCount
 {
@@ -76,4 +80,4 @@ private:
 };
 
 
-#endif /* FBullCowGame_hpp */
+/* FBullCowGame_hpp */
