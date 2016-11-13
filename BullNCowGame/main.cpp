@@ -10,17 +10,22 @@
 #include <iostream>
 #include <string>
 #include "FBullCowGame.hpp"
+#define MAX_WORD_LENGTH 8
+#define MIN_WORD_LENGTH 3
 
 using FText = std::string;
 using int32 = int;
 
+
 void PrintIntro();
+void PrintIntro_2();
 FText GetPlayerGuess();
 void SayGuess(FBullCowCount BullCowCount);
 void PlayGame();
 bool AskToPlayAgain();
 void GameLoop();
 void PrintGameSummary();
+void SelectNumberOfLetters();
 
 FBullCowGame BCGame; // Instantiante a new game.
 
@@ -28,7 +33,6 @@ FBullCowGame BCGame; // Instantiante a new game.
 
 int main()
 {
-    
     GameLoop();
     return 0;
 }
@@ -42,6 +46,10 @@ void GameLoop()
     
     do {
     PrintIntro();
+    SelectNumberOfLetters();
+    BCGame.Reset();
+    PrintIntro_2();
+        
     PlayGame();
     isPlaying = AskToPlayAgain();
     } while(isPlaying);
@@ -92,6 +100,26 @@ void PlayGame()
     PrintGameSummary();
     
     
+    return;
+}
+
+void SelectNumberOfLetters()
+{
+    int32 wordLengthSelected;
+    
+    do{
+    std::cout << "Please enter the word length between 3 and 7 that you want me to think: ";
+    std::cin >>  wordLengthSelected;
+    
+        if(wordLengthSelected >= MAX_WORD_LENGTH || wordLengthSelected < MIN_WORD_LENGTH)
+        {
+            std::cout << "\nYou need to choose a length less than 8 and greater than 2.\n\n";
+        }
+    
+    }while((wordLengthSelected >= MAX_WORD_LENGTH) && wordLengthSelected < MIN_WORD_LENGTH);
+
+    BCGame.SetWordLength(wordLengthSelected);
+   
     return;
 }
 
@@ -181,8 +209,12 @@ void PrintIntro()
     std::cout << "                                          " << std::endl;
     
     
+    return;
+}
+
+void PrintIntro_2(){
+    
     std::cout << "Can you guess the "<< BCGame.GetHiddenWordLength();
     std::cout << " letter isogram I'm thinking of?\n\n";
-    
     return;
 }

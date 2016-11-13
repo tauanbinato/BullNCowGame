@@ -24,7 +24,7 @@ bool FBullCowGame::isGameWon() const { return bGameIsWon; }
 
 int32 FBullCowGame::GetMaxTries() const
 {
-    TMap<int32,int32> WordLengthToMaxTries { {3,5}, {4,5}, {5,7}, {6,8} , {7,8} , {8,10} };
+    TMap<int32,int32> WordLengthToMaxTries { {3,5}, {4,5}, {5,7}, {6,8} , {7,10} };
     return WordLengthToMaxTries[(int32)MyHiddenWord.length()];
 }
 
@@ -95,9 +95,7 @@ bool FBullCowGame::isLowerCase(FString Word) const{
 void FBullCowGame::Reset()
 {
     
-    const FString HIDDEN_WORD = "unha";
-    
-    MyHiddenWord = HIDDEN_WORD;
+    SetHiddenWord(MyCurrentWordLength);
     
     MyCurrentTry = 1;
     bGameIsWon = false;
@@ -151,4 +149,19 @@ FBullCowCount FBullCowGame::SubmitValidGuess(FString Guess)
     }
     
     return BullCowCount;
+}
+
+void FBullCowGame::SetWordLength(int32 size)
+{
+    MyCurrentWordLength = size;
+    return;
+}
+
+void FBullCowGame::SetHiddenWord(int32 MyHiddenWordLength)
+{
+
+    TMap<int32,FString> WordLengthToSomeWord { {3,"luz"}, {4,"unha"}, {5,"pomba"}, {6,"chaves"} , {7,"frangos"} };
+    MyHiddenWord = WordLengthToSomeWord[MyCurrentWordLength];
+    return;
+    
 }
